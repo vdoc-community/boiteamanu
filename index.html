@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title>Boite à Manu</title>
+</head>
+<body>
+	<audio src="./manu_laugh.mp3">
+	  Votre navigateur ne supporte pas l'élément <code>audio</code>.
+	</audio>
+	<img id="img" src="./sad.jpg" onclick="play();" />
+	<script>
+		var playing = false;
+		function play()
+		{
+			if( playing)
+				return;
+			playing = true;
+			var d = document.getElementById("img"); 
+			d.setAttribute("src", "./laugh.jpg");
+			var v = document.getElementsByTagName("audio")[0];
+			v.play();
+			setTimeout(function(){
+				var d = document.getElementById("img"); 
+				d.setAttribute("src", "./sad.jpg"); 
+				playing = false;
+			}, 4500);
+		}
+	</script>
+</body>
+</html>
